@@ -1773,7 +1773,16 @@ console.log(localStorage);</script>
               ;
             return indxs
           }</script>
-        <script class="df2c7301-2c6f-4d36-bd55-f35b4e69d492">function relation(parent, child) {
+        <script class="df2c7301-2c6f-4d36-bd55-f35b4e69d492">function link(nav, el, arg) {
+            if (nav)
+              window.postMessage(['URL', nav], 'localhost'),
+              window.postMessage(['URL', nav], 'https://fururues.com');
+            if (el) {
+              (arg = objWalk(el, ['nES', 'cL'])).replace('show', 'absolute') || arg.replace('absolute', 'show'),
+              el.lastElementChild.classList.toggle('fa-chevron-up')
+            }
+          }
+function relation(parent, child) {
             return [parent.compareDocumentPosition(child) & Node.DOCUMENT_POSITION_CONTAINED_BY, parent.compareDocumentPosition(child) & Node.DOCUMENT_POSITION_CONTAINS]
           }
           function objWalk(e, a, logStack, dict) {
@@ -1839,14 +1848,6 @@ console.log(localStorage);</script>
           )(['classList', 'previousSibling', 'nextSibling', 'lastChild', 'firstChild', 'nextElementSibling', 'previousElementSibling', 'parentNode', 'lastElementChild', 'childNodes', 'firstElementChild']),
           domain = window.location.href.split(/user|admin/)[0];
           /*constants*/
-          function link(nav, el, arg) {
-            if (nav)
-              console.log(window, window.contentWindow)/*.location.pathname = nav;*/
-            if (el) {
-              (arg = objWalk(el, ['nES', 'cL'])).replace('show', 'absolute') || arg.replace('absolute', 'show'),
-              el.lastElementChild.classList.toggle('fa-chevron-up')
-            }
-          }
           const xhr = new XMLHttpRequest
             , cAF = w.cancelAnimationFrame || clearInterval
             , vw_breaks = [500, 640, 768, 1024, 1280]

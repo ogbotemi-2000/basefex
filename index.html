@@ -1672,52 +1672,7 @@ cN[0].classList.toggle('fa-grip-lines-vertical')
         <!--END-->
         <script>const promisify = cb=>new Promise(resolve=>setTimeout(_=>resolve(cb())));
           let build, w = window, d = document, html=d.documentElement, qs = _=>document.querySelector(_), slice = (_,start,end)=>[].slice.call(_, start, end), qsa = _=>slice(d.querySelectorAll(_)), mDize = _=>Function.prototype.call.bind(_), prot_A = Array.prototype, getStyle = (el,prop)=>w.getComputedStyle(el)[prop];
-          w.onload = function() {
-            
-          }
-function save(blob, name) {
-    name = name || 'download';
-
-    // Use native saveAs in IE10+
-    if (typeof navigator !== "undefined") {
-        if (/MSIE [1-9]\./.test(navigator.userAgent)) {
-            alert('IE is unsupported before IE10');
-            return;
-        }
-        if (navigator.msSaveOrOpenBlob) {
-            // https://msdn.microsoft.com/en-us/library/hh772332(v=vs.85).aspx
-            alert('will download using IE10+ msSaveOrOpenBlob');
-            navigator.msSaveOrOpenBlob(blob, name);
-            return;
-        }
-    }
-
-    // Construct URL object from blob
-    var win_url = window.URL || window.webkitURL || window;
-    var url = win_url.createObjectURL(blob);
-
-    // Use a.download in HTML5
-    var a = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-    if ('download'in a) {
-        alert('will download using HTML5 a.download');
-        a.href = url;
-        a.download = name;
-        a.dispatchEvent(new MouseEvent('click'));
-        // Don't revoke immediately, as it may prevent DL in some browsers
-        setTimeout(function() {
-            win_url.revokeObjectURL(url);
-        }, 500);
-        return;
-    }
-
-    // Use object URL directly
-    window.location.href = url;
-    // Don't revoke immediately, as it may prevent DL in some browsers
-    setTimeout(function() {
-        win_url.revokeObjectURL(url);
-    }, 500);
-}
-</script>
+        </script>
 
 
 <script>
@@ -1811,6 +1766,9 @@ function save(blob, name) {
             , 1000 / 60);
             return rAF
           }
+          async function makeAwait(fn) {
+            return await fn&&(fn.call&&fn.call());
+          }
           function getIndexes(arr, chks, indxs=[]) {
             chks = typeof chks === 'string' ? [chks] : chks;
             for (let i = 0, j = arr.length; i < j; chks.find(e=>e === arr[i]) != void 0 && indxs.push(i),
@@ -1818,8 +1776,11 @@ function save(blob, name) {
               ;
             return indxs
           }</script>
-        <script class="df2c7301-2c6f-4d36-bd55-f35b4e69d492">window.addEventListener('message', function(event) {
-      console.log(JSON.parse(event.data));
+        <script class="df2c7301-2c6f-4d36-bd55-f35b4e69d492">
+      window.addEventListener('message', function(event) {
+      makeAwait(_=>JSON.parse(event.data)).then(json=>{
+        console.log('JSON parsed from postMessage of the TradingView iframe', json)
+      }).catch(console.log);
 });
 
 function link(nav, el, arg) {

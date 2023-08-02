@@ -475,9 +475,9 @@ html.chrome .editor datalist .decorate div {
 .tooltip.to-bottom {
 	--arrow-x: 0%;
 	--arrow-degree: 0deg;
-    top: calc(100% + 5px);
+	top: calc(100% + 5px);
 	left: 50%;
-    transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 .tooltip.to-right {
  --arrow-y: 50%;
@@ -552,16 +552,13 @@ with visibility: visible; triggers a hover event that then makes tooltip visible
 
 /*--------------recent-------------------*/
 
-.tooltip:not(.show).no-hover.no-focus .tooltip,
-.tooltip:not(.show).no-hover.no-focus .tooltip.md\:show,
-.tooltip:not(.show).no-hover.no-focus .tooltip.sm\:show,
-.tooltip:not(.show).no-hover.no-focus .tooltip.lg\:show,
-.tooltip:not(.show).no-hover.no-focus .tooltip.xl\:show {
+.tooltip:not(.show).no-hover.no-focus .tooltip, .tooltip:not(.show).no-hover.no-focus .tooltip.md\:show, .tooltip:not(.show).no-hover.no-focus .tooltip.sm\:show, .tooltip:not(.show).no-hover.no-focus .tooltip.lg\:show, .tooltip:not(.show).no-hover.no-focus .tooltip.xl\:show {
 	pointer-events: none;
 }
 
 @media (min-width: 640px) {
- .tooltip.sm\:show  {
+ .tooltip.sm\:show,
+ .tooltip.slide.sm\:show {
 
 	 visibility: visible;
 
@@ -613,7 +610,8 @@ with visibility: visible; triggers a hover event that then makes tooltip visible
 
 }
 
- .tooltip.lg\:show.no-hover, .tooltip.lg\:show.no-focus  {
+ .tooltip.lg\:show.no-hover, .tooltip.lg\:show.no-focus,
+ .tooltip.lg\:show.no-hover.no-focus .tooltip.no-hover.no-focus.show {
 
 	 pointer-events: auto;
 

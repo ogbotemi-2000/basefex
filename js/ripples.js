@@ -24,8 +24,8 @@ animations.RIPPLE_MAX_RADIUS_PX = 300;
 //User created constant for a dynamic radius.
 animations.RIPPLE_RELATIVE_RADIUS = 0;
 let ripple = document.createElement('div'), timeout = 0;
-ripple.className = 'absolute p-1 origin-center rounded-full transform-gpu duration-500 ease rounded-full ease origin-center';
- 
+ripple.className = 'absolute p-1 origin-center rounded-full transform-gpu duration-500 ease rounded-full ease origin-center pointer-events-none';
+ripple.innerHTML = ''; 
 animations.addRippleAnimations = function() {
   
   let ripple_fn = (event) => {

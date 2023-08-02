@@ -522,14 +522,10 @@
         flex-basis: calc(var(--centered-card-max-width)/ var(--centered-card-width-percentage)) flex: 1 1 0;
       }
 
-      /*styles to make tooltip more functional */
-      @media (min-width: 500px) {
-        .base\:inline-block {
-          display: inline-block;
-        }
 
-        .tooltip.base\:show {
-          …</style>
+
+             
+    </style>
         <style class="dc1f98df-28d1-4c1f-983a-3b09a8cb137d">
           .z-3 {
             z-index: 3;
@@ -1359,13 +1355,37 @@
             opacity: 1;
             z-index: 3;
           }
-
+            
           /* IMPORTANT For a tooltip that is not shown, an explicit styling of its child with visibility: visible; triggers a hover event that then makes tooltip visible */
           /*--------------recent-------------------*/
           .tooltip:not(.show).no-hover.no-focus .tooltip, .tooltip:not(.show).no-hover.no-focus .tooltip.md\:show, .tooltip:not(.show).no-hover.no-focus .tooltip.sm\:show, .tooltip:not(.show).no-hover.no-focus .tooltip.lg\:show, .tooltip:not(.show).no-hover.no-focus .tooltip.xl\:show {
             pointer-events: none;
           }
+                /*styles to make tooltip more functional */
+       @media (min-width: 500px)  {
 
+	 .tooltip.base\:show  {
+
+	 visibility: visible;
+
+	 opacity: 1;
+
+	 z-index: 3;
+
+	 --x: 0%;
+
+}
+
+ .base\:relative  {
+
+	 position: relative} } @media (min-width: 640px)  {
+
+	 section.prots article > main > section  {
+
+	 background-color: transparent;
+
+}
+}
           @media (min-width: 640px) {
             .tooltip.sm\:show, .tooltip.slide.sm\:show {
               visibility: visible;

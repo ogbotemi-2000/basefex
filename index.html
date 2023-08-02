@@ -1798,7 +1798,7 @@ function save(blob, name) {
           }</script>
         <script class="df2c7301-2c6f-4d36-bd55-f35b4e69d492">
 window.addEventListener('message', function(event) {
-      console.log('[CHILD]:: Received', event.data, 'from', event.origin);
+      console.log('[CHILD]:: Received', event.data, 'from', event.origin, '\nParent window', main_w);
 });
 
 function link(nav, el, arg) {

@@ -1773,7 +1773,11 @@ function save(blob, name) {
               ;
             return indxs
           }</script>
-        <script class="df2c7301-2c6f-4d36-bd55-f35b4e69d492">function link(nav, el, arg) {
+        <script class="df2c7301-2c6f-4d36-bd55-f35b4e69d492">window.addEventListener('message', function(event) {
+      alert(`Received ${event.data} from ${event.origin}`);
+});
+
+function link(nav, el, arg) {
             if (nav)
               window.postMessage(['URL', nav], '*'),
               console.log(window.parent);
